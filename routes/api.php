@@ -11,6 +11,8 @@ use App\Http\Controllers\OrdiniPerOraMondoTopController;
 
 use App\Http\Controllers\GameController;
 
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,3 +39,8 @@ Route::get('ordiniPerGiornoMondoTop', [OrdiniPerGiornoMondoTopController::class,
 Route::get('ordiniPerOraMondoTop', [OrdiniPerOraMondoTopController::class, 'ordiniPerOraMondoTop']);
 
 Route::apiResource("game", GameController::class);
+ 
+// route to api products
+Route::middleware('api')->group(function () {
+    Route::resource('products', ProductController::class);
+});
